@@ -1,37 +1,37 @@
-import { useState } from 'react'
 import {
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom"
-import Sighting from './Sighting'
-import Report from './Report'
-import News from './News'
-
 import './App.css'
+import NavBar from './NavBar'
+import News from './News'
+import Report from './Report'
+import Sighting from './Sighting'
 
-function App() {
+const Root = ({ children }) => (
+  <>
+    <NavBar />
+    {children}
+  </>
+)
+
+const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Sighting />
+      element: <Root><Sighting /></Root>
     },
     {
       path: "/report",
-      element: <Report />
+      element: <Root><Report /></Root>
     },
     {
       path: "/news",
-      element: <News />
+      element: <Root><News /></Root>
     }
-
-
   ]);
 
-  return (
-    <div>
-      <RouterProvider router={router} />
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

@@ -19,7 +19,10 @@ export default function Sighting() {
             {
                 sightings.map((sighting) => {
                     return (
-                        <img src={sighting.image} />
+                        <div className="sightingCard">
+                            <img src={sighting.image} className="sightingImg" />
+                            <p>{sighting.description}</p>
+                        </div>
                     )
                 })
             }
