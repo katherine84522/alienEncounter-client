@@ -12,15 +12,51 @@ export default function Sighting() {
             console.log(res)
 
         }
+
+        const connect = async () => {
+            const ws = new WebSocket("ws://localhost:3000/cable")
+
+            ws.onopen = () => {
+                console.log("Websockets connected!")
+
+                ws.send(JSON.stringify({ "command": "subscribe", "identifier": `{"channel": "LiveFeedChannel"}` }))
+                // ws.send(JSON.stringify({"command": "subscribe", "identifier": "{\"channel\": \"NotificationsChannel\"}"}))
+            }
+
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data)
+                if (data.type === "ping" || data.type === "welcome" || data.type === "confirm_subscription") return
+                console.log('data', data)
+
+                // Retrieve the newly created post object sent by ActionCable (Rails)
+                // Update state using setPosts to reflect this change in the browser immediately
+                const sighting = data.message.report
+                setSightings(prevState => [sighting, ...prevState])
+            }
+
+
+
+        }
+
+
+
+        connect()
+
         request()
     }, [])
+
+
+
+
     return (
-        <div>
+        <div className="sighting">
             {
                 sightings.map((sighting) => {
                     return (
                         <div className="sightingCard">
                             <img src={sighting.image} className="sightingImg" />
+                            {/* <p>{likecount} likes</p> */}
+                            <p>Saw in {sighting.country}</p>
                             <p>{sighting.description}</p>
                         </div>
                     )

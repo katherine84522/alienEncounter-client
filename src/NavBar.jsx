@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
     return (
         <div className='navbar'>
-            <div className="headerImg">
-                {/* <img className="logoImg" src='./src/assets/headerRED1.png' /> */}
-            </div>
+            {/* <div className="headerImg"> */}
+            {/* <img className="logoImg" src='./src/assets/headerRED1.png' /> */}
+            {/* </div> */}
             <div className='navButtons'>
                 <NavLink
                     to="/"
