@@ -51,14 +51,15 @@ export default function NewsArticle({ article }) {
                 </div>
             </div>
             <form onSubmit={e => handleSubmit(e, article)}>
-                <input name="content" type="text" value={content} onChange={(e) => { setContent(e.target.value) }} />
-                <input type="submit" />
+                <input className="newsBar" name="content" type="text" value={content} onChange={(e) => { setContent(e.target.value) }} />
+                <input  className="newsSubmit" type="submit" />
             </form>
             {
                 comments.map((comment) => {
                     return (
-                        <div>
-                            <p>{comment.content}</p>
+                        <div className="time">
+                            <p className="commentsTime">{comment.created_at}</p>  
+                            <p className="comments">{comment.content}</p>
                         </div>
                     )
                 })
