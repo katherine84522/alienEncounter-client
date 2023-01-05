@@ -6,13 +6,19 @@
 
 
 .sightingImg {
-  width: 100%;
-  height: auto;
+  /* width: 100%;
+  height: auto; */
+  float: left;
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
+
 }
 
 .sightingCard {
   width: 33%;
   height: auto;
+  
 }
 
 .navbar {
@@ -30,3 +36,4 @@
   /* margin-left: 400px; */
 
 }
+

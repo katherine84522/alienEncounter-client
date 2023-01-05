@@ -171,7 +171,7 @@ body {
     display: center;
     height: 400px;
     align-content: space-evenly;
-    margin-left: auto;
+    margin-left: 15px;
     margin-right: auto;
     width: 50%;
     
@@ -181,33 +181,57 @@ body {
     border-radius: 8px;
 }
 
+/* .imgDiv {
+    width: 50%;
+    height: auto;
+
+
+} */
+
 .likeButton {
     background-color: #1c2f13;
         color: #fff;
-        border: 0;
+        /* border: 0; */
         font-size: 1rem;
         font-weight: 100;
-        padding: 0.5em 1.25em;
+        /* padding: .25em; */
         border-radius: 0.5em;
-        z-index: 999;
-        position: relative;
-        display: flex;
-        gap: 0.5em;
+        width: 300px;
+        height: 50px;
+        /* margin-left: 65px; */
+        
+        
 }
 
-.country{
-    font-family: "Trebuchet MS", Verdana, sans-serif;
-    font-size: 20px;
+.center {
+    margin-right: -50px;
+    padding-right: -50px;
+    
+
+
     
 }
-.description {
+
+.likesButton{
+    display: flex;
     font-family: "Trebuchet MS", Verdana, sans-serif;
-    font-size: 17px;
+        font-size: 15px;
+        margin: 5px 20px;
+            width: -10px;
+            
+        /* padding: 10px; */
+
 }
-.likes {
+
+.homeText{
     font-family: "Trebuchet MS", Verdana, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
+    /* text-align: center; */
+    /* margin-right: -50%;
+    margin-top: 15%;
+    text-align: center; */
 }
+
 
 .descriptionFont{
     float: left;
@@ -333,13 +357,63 @@ body {
 
 }
 
-.newsBox{
+.newsBox {
     text-align: center;
-    padding-left: 20px;
-    padding-right: 80px;
-    margin-top: 20px;
+   
 }
 
 .newsPage {
     background-color: rgba(235, 238, 236, 0.455);
+}
+
+.newsSubmit {
+    background-color: #000000;
+        color: #fff;
+        border: 0;
+        font-size: 1rem;
+        font-weight: 100;
+        padding: 0.5em 1.25em;
+        border-radius: 0.5em;
+        z-index: 999;
+        display: flex;
+        gap: 0.5em;
+        margin-left: 68%;
+        margin-top: -37px;
+}
+
+.newsBar {
+        background-color: rgba(255, 255, 255, 0.339);
+        color: black;
+        margin-left: 26%;
+        margin-top: 1%;
+        width: 40%;
+        line-height: 30%;
+        padding: 10px;
+
+}
+
+.time{
+    display: flex;
+    padding: 5px;
+    
+}
+
+.commentsTime{
+    line-height: -5px;
+    font-family: "Gill Sans", sans-serif;
+    flex-direction: column;
+    margin-left: 8%;
+    margin-top: 3%;
+    font-size: 1rem;
+    
+    
+}
+
+.comments{
+    /* line-height: 1px; */
+    margin-top: 3%;
+    font-size: 1rem;
+    margin-left: 10.5%;
+    font-family: "Gill Sans", sans-serif;
+    
 }
