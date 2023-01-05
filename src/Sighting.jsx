@@ -47,17 +47,25 @@ export default function Sighting() {
     }, [])
 
 
+    const handleSort = () => {
+        const sortedSightings = sightings.sort((a, b) => a.likecount > b.likecount ? -1 : 1)
+        setSightings(sortedSightings)
+        console.log(sortedSightings)
+    }
 
 
     return (
-        <div className="sighting">
-            {
-                sightings.map((sighting) => {
-                    return (
-                        < SightingCard sighting={sighting} />
-                    )
-                })
-            }
+        <div>
+            <button className="sortButton" onClick={() => { handleSort() }}>Sort by popularity</button>
+            <div className="sighting">
+                {
+                    sightings.map((sighting) => {
+                        return (
+                            < SightingCard sighting={sighting} />
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
