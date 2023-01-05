@@ -32,13 +32,13 @@ export default function Report() {
 
 
     return (
-        <div >
+        <div className="postImg" >
             <form onSubmit={handleSubmit}>
-                <label>Image URL:</label>
-                <input type="text" name="image" />
+                <label className="dateFont">Image URL:</label>
+                <input className="dateText" type="text" name="image" />
                 <br />
-                <label>Country:</label>
-                <input type="text" name="country" />
+                <label className="dateFont">Country:</label>
+                <input className="dateText" type="text" name="country" />
                 <br />
                 <label className="dateFont">Date:</label>
                 <input type="text" name="date" className="dateText"/>
@@ -46,8 +46,10 @@ export default function Report() {
                 <label className="descriptionFont">Please describe the alien or its aircraft:</label>
                 <textarea className="descriptionText" name="description" />
                 <br />
-
-                <input type="submit" />
+                
+                <input className ="button-23" type="submit"/>
+                
+                
 
 
             </form>

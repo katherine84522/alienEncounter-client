@@ -1,18 +1,35 @@
-/* body {
-    /* background-image: url('https://www.gannett-cdn.com/media/2019/04/05/USATODAY/usatsports/gettyimages-501124314.jpg');
-    background-size: 100%; */
-    /* background-color: #628d7c; */
+body {
+    background-color: #628d7c;
+}
+.headerImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 40px;
+}
 
-
+.logoImg {
+    height: 125px
+}
 .navbar{
-    background-color:#628d7c;
-    padding: 40px;
+    background-color:black;
+    padding-bottom: 50px;
+    padding-top: 20px;
     margin: 0;
+
+}
+
+.navButtons {
+    margin-left: 10px;
+    margin-top: 40px;
+}
+.fontColor{
+    color:black
 }
 .sightingNav{
    
-    appearance: none;
-    background-color: transparent;
+    /* appearance: none; */
+    background-color: white;
     border: 2px solid #1A1A1A;
     border-radius: 15px;
     box-sizing: border-box;
@@ -20,14 +37,14 @@
     cursor: pointer;
     display: inline-block;
     font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     line-height: normal;
-    margin: 0;
+    margin-left: 10px;
     min-height: 60px;
     min-width: 0;
     outline: none;
-    padding: 16px 24px;
+    padding: -15px;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -44,14 +61,14 @@
     
 .sightingNav:hover {
         color: #fff;
-        background-color: #1A1A1A;
+        background-color: #396974;
         box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
         transform: translateY(-2px);
         }
 .reportNav {
 
-    appearance: none;
-    background-color: transparent;
+    
+    background-color: white;
     border: 2px solid #1A1A1A;
     border-radius: 15px;
     box-sizing: border-box;
@@ -62,11 +79,11 @@
     font-size: 16px;
     font-weight: 600;
     line-height: normal;
-    margin: 0;
+    margin-left: 80px;
     min-height: 60px;
     min-width: 0;
     outline: none;
-    padding: 16px 24px;
+    padding: -15px;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -93,56 +110,14 @@
             transform: translateY(0);
         }
 
-        .reportNav {
-
-    appearance: none;
-    background-color: transparent;
-    border: 2px solid #1A1A1A;
-    border-radius: 15px;
-    box-sizing: border-box;
-    color: #3B3B3B;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
-    font-weight: 600;
-    line-height: normal;
-    margin: 0;
-    min-height: 60px;
-    min-width: 0;
-    outline: none;
-    padding: 16px 24px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: 20%;
-    will-change: transform;
-}
-
-.reportNav:disabled {
-    pointer-events: none;
-}
-
-.reportNav:hover {
-    color: #fff;
-    background-color: #1A1A1A;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-2px);
-}
-    
-.reportNav:active {
-            box-shadow: none;
-            transform: translateY(0);
-        }
-
+       .navLink {
+        text-decoration: none;
+       } 
 
 .newsNav {
 
-    appearance: none;
-    background-color: transparent;
+    
+    background-color: white;
     border: 2px solid #1A1A1A;
     border-radius: 15px;
     box-sizing: border-box;
@@ -150,14 +125,14 @@
     cursor: pointer;
     display: inline-block;
     font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     line-height: normal;
-    margin: 0;
+    margin-left: 80px;
     min-height: 60px;
     min-width: 0;
     outline: none;
-    padding: 16px 24px;
+    padding: -15px;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -207,7 +182,7 @@
 }
 
 .likeButton {
-    background-color: #404663;
+    background-color: #1c2f13;
         color: #fff;
         border: 0;
         font-size: 1rem;
@@ -238,6 +213,8 @@
     float: left;
     width: 25%;
     margin-top: 6px;
+    font-family: "Gill Sans", sans-serif;
+    color: white;
 }
 
 .descriptionText {
@@ -248,15 +225,49 @@
         border-radius: 4px;
         resize: vertical;
 }
+
+.dateFont {
+    float: left;
+    width: 100%;
+    margin-top: 6px;
+    font-family: "Gill Sans", sans-serif;
+    color: white;
+
+}
 .dateText {
-    width: 25%;
+    width: 20%;
     line-height: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+    border-radius: 1px;
+    resize: horizontal;
 }
 
+.button-23 {
+    background-color: #000000;
+        color: #fff;
+        border: 0;
+        font-size: 1rem;
+        font-weight: 100;
+        padding: 0.5em 1.25em;
+        border-radius: 0.5em;
+        z-index: 999;
+        position: absolute;
+        top: 765px;
+        left: 600px;
+        display: flex;
+        gap: 0.5em;
+}
+
+.postImg{
+    background-image: url("https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/POLL/d4izsou-kugsl1ns_jvjda.jpg");
+    background-size: cover;
+    padding: 200px
+}
+
+
 .form {
+    z-index: 1;
     width: 100%;
+    background-color: white;
 }

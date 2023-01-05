@@ -17,15 +17,15 @@
 .navbar {
   height: 100px;
   display: flex;
-  justify-content: center;
   width: 100%;
 }
 
 .navButtons {
-  margin-top: 50px;
-  width: 50%;
+  width: 65%;
   display: flex;
-  justify-content: space-between;
+  margin-left: 600px;
+  
+  /* justify-content: space-between; */
   /* margin-left: 400px; */
 
 }
