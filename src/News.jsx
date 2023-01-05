@@ -2,18 +2,18 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import Article from './Article'
 
-export default function News() {
+export default function News({ setArticle }) {
     const navigate = useNavigate();
-    const [ articles, setArticles ] = useState([])
- 
-    useEffect(()=> {
+    const [articles, setArticles] = useState([])
+
+    useEffect(() => {
         const request = async () => {
             let req = await fetch("http://localhost:3000/articles")
             let res = await req.json()
             setArticles(res)
-        
+
         }
-       
+
         const connect = async () => {
             const ws = new WebSocket("ws://localhost:3000/cable")
 
@@ -42,21 +42,21 @@ export default function News() {
 
         connect()
         request()
-    },[])
+    }, [])
 
 
-    
+
 
     return (
         <div className="article">
             {
                 articles.map((article) => {
                     return (
-                        < Article article={article} />
+                        < Article article={article} setArticle={setArticle} />
                     )
                 })
             }
-            
+
         </div>
     )
 }
