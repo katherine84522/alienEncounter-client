@@ -271,3 +271,75 @@ body {
     width: 100%;
     background-color: white;
 }
+
+.articleImg {
+    border-radius: 10px;
+    width: 30%;
+}
+
+
+.newsText {
+        font-family: "Gill Sans", sans-serif;
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: -15px;
+        /* width: 70% */
+}
+
+.articleCard {
+    margin: 10%;
+    margin-top: 25px;
+    margin-bottom: -15px;
+        margin-bottom: 1.5rem;
+        border-radius: 5px;
+        padding: 1.5rem;
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.339);
+}
+
+.titleText {
+    margin-left: 40px
+
+    /* text-align: center; */
+}
+
+.readMore {
+    font-family: "Gill Sans", sans-serif;
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: -15px;
+        font-size: 25px;
+        color: rgb(143, 19, 143);
+}
+
+.newsTitle {
+        font-family: "Gill Sans", sans-serif;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 35px;
+}
+
+.newsImg {
+    display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+}
+
+.articleAuthor {
+    font-size: 1.2rem;
+    font-family: "Gill Sans", sans-serif;
+    margin-left: 60px;
+
+}
+
+.newsBox{
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 80px;
+    margin-top: 20px;
+}
+
+.newsPage {
+    background-color: rgba(235, 238, 236, 0.455);
+}

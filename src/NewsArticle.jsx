@@ -39,13 +39,21 @@ export default function NewsArticle({ article }) {
     }
 
     return (
-        <div>
+        <div className="newsPage">
             <div>
-                <h2>{article.title}</h2>
-                <img src={article.image} style={{ width: "50%" }} />
-                <p>Written By {article.author}</p>
-                <p>{article.content}</p>
+                <h2 className="newsTitle">{article.title}</h2>
+                <img src={article.image} className="newsImg" />
+                <div className="newsBox">
+                <p className="articleAuthor">Written By: {article.author}</p>
+                <p className="articleAuthor">Published on {article.month}/{article.date}/{article.year}</p>
+                <p className="articleAuthor">{article.content}</p>
+
+                </div>
             </div>
+            <form onSubmit={e => handleSubmit(e, article)}>
+                <input name="content" type="text" value={content} onChange={(e) => { setContent(e.target.value) }} />
+                <input type="submit" />
+            </form>
             {
                 comments.map((comment) => {
                     return (
@@ -55,10 +63,7 @@ export default function NewsArticle({ article }) {
                     )
                 })
             }
-            <form onSubmit={e => handleSubmit(e, article)}>
-                <input name="content" type="text" value={content} onChange={(e) => { setContent(e.target.value) }} />
-                <input type="submit" />
-            </form>
+            
         </div>
     )
 }

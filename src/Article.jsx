@@ -18,12 +18,14 @@ export default function Article({ article, setArticle }) {
 
     return (
             <div className="articleCard">
-                <h2>{article.title}</h2>
                 <img src={article.image} className="articleImg" />
-                <p>Written By {article.author}</p>
-                <p>{article.published}</p>
-                <p>{article.content}</p>
-                <p onClick={() => { handleArticle(article) }}>Read more</p>
+                <div>
+                <h3 className="titleText">{article.title}</h3>
+                <p className="newsText">Written By {article.author}</p>
+                <p className="newsText">Published on {article.month}/{article.date}/{article.year}</p>
+                <p className="readMore" onClick={() => { handleArticle(article) }}>👽 Read more</p>
+                </div>
+
 
             </div>
     )
