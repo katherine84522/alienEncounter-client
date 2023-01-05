@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
+import SightingCard from './SightingCard'
 
 export default function Sighting() {
     const navigate = useNavigate();
@@ -53,12 +54,7 @@ export default function Sighting() {
             {
                 sightings.map((sighting) => {
                     return (
-                        <div className="sightingCard">
-                            <img src={sighting.image} className="sightingImg" />
-                            {/* <p>{likecount} likes</p> */}
-                            <p>Saw in {sighting.country}</p>
-                            <p>{sighting.description}</p>
-                        </div>
+                        < SightingCard sighting={sighting} />
                     )
                 })
             }
