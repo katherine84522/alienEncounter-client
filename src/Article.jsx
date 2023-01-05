@@ -1,68 +1,31 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
-export default function Article({ article }) {
+export default function Article({ article, setArticle }) {
 
 
-    const [comments, setComments] = useState([])
-    const [content, setContent] = useState([])
-
-    useEffect(() => {
-        const request = async () => {
-            let req = await fetch(`http://localhost:3000/articles/${article.id}/comments`)
-            let res = await req.json()
-            setComments(res)
-        }
-        request()
-    }, [])
 
 
-    const handleSubmit = (e, article) => {
-        e.preventDefault();
-        const request = async () => {
-            let req = await fetch(`http://localhost:3000/articles/${article.id}/comments`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    content: content,
-                    article_id: article.id
-                }),
-            });
-            let res = await req.json()
-            console.log(res)
+    let navigate = useNavigate()
 
-            setComments(prevState => [...prevState, res])
-        }
-        request()
-        setContent('')
+    const handleArticle = (article) => {
+        setArticle(article)
+        let path = `/news/${article.id}`
+        navigate(path);
     }
 
 
     return (
-        <div>
             <div className="articleCard">
                 <h2>{article.title}</h2>
                 <img src={article.image} className="articleImg" />
                 <p>Written By {article.author}</p>
                 <p>{article.published}</p>
                 <p>{article.content}</p>
-                <p></p>
+                <p onClick={() => { handleArticle(article) }}>Read more</p>
 
             </div>
-            {
-                comments.map((comment) => {
-                    return (
-                        <div>
-                            <p>{comment.content}</p>
-                        </div>
-                    )
-                })
-            }
-            <form onSubmit={e => handleSubmit(e, article)}>
-                <input name="content" type="text" value={content} onChange={(e) => { setContent(e.target.value) }} />
-                <input type="submit" />
-            </form>
-        </div>
     )
 }
 

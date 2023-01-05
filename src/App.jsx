@@ -7,6 +7,9 @@ import NavBar from './NavBar'
 import News from './News'
 import Report from './Report'
 import Sighting from './Sighting'
+import NewsArticle from './NewsArticle'
+import { useState } from 'react'
+
 
 const Root = ({ children }) => (
   <>
@@ -16,6 +19,10 @@ const Root = ({ children }) => (
 )
 
 const App = () => {
+
+  const [article, setArticle] = useState([])
+
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -27,7 +34,11 @@ const App = () => {
     },
     {
       path: "/news",
-      element: <Root><News /></Root>
+      element: <Root><News setArticle={setArticle} /></Root>
+    },
+    {
+      path: "/news/:id",
+      element: <Root><NewsArticle article={article} /></Root>
     }
   ]);
 
