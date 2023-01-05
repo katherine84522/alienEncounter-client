@@ -44,8 +44,8 @@ export default function Report() {
                 <br />
                 <div>
                     <label className="dateFont">Date:</label>
-                    <input placeholder="Date" type="text" name="date" className="dateText" />
                     <input placeholder="Month" type="text" name="month" className="dateText" />
+                    <input placeholder="Date" type="text" name="date" className="dateText" />
                     <input placeholder="Year" type="text" name="year" className="dateText" />
                 </div>
                 <br />

@@ -21,7 +21,8 @@ export default function Sighting() {
                 console.log("Websockets connected!")
 
                 ws.send(JSON.stringify({ "command": "subscribe", "identifier": `{"channel": "LiveFeedChannel"}` }))
-                // ws.send(JSON.stringify({"command": "subscribe", "identifier": "{\"channel\": \"NotificationsChannel\"}"}))
+                // ws.send(JSON.stringify({ "command": "subscribe", "identifier": `{"channel": "NotificationChannel"}` }))
+
             }
 
             ws.onmessage = (event) => {
@@ -33,6 +34,7 @@ export default function Sighting() {
                 // Update state using setPosts to reflect this change in the browser immediately
                 const sighting = data.message.report
                 setSightings(prevState => [sighting, ...prevState])
+                alert("A new alien sighting is posted!")
             }
 
 
