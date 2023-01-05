@@ -8,26 +8,15 @@ function NavBar() {
             {/* <img className="logoImg" src='./src/assets/headerRED1.png' /> */}
             {/* </div> */}
             <div className='navButtons'>
-                <NavLink
-                    to="/"
-                    exact
-                >
-                    Sightings
-                </NavLink>
-                <NavLink
-                    to="/report"
-                    exact
-
-                >
-                    Report a Sighting
-                </NavLink>
-                <NavLink
-                    to="/news"
-                    exact
-
-                >
-                    Alien News
-                </NavLink>
+                <div className="sightingNav">
+                <NavLink to="/" exact> Sightings</NavLink>
+                </div>
+                <div className="reportNav">
+                <NavLink to="/report" exact>Report a Sighting</NavLink>
+                </div>
+                <div className ="newsNav">
+                <NavLink to="/news" exact>Alien News</NavLink>
+                </div>
             </div>
         </div>
     );
