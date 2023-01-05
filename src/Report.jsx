@@ -18,6 +18,8 @@ export default function Report() {
                 body: JSON.stringify({
                     country: e.target.country.value,
                     image: e.target.image.value,
+                    year: e.target.year.value,
+                    month: e.target.month.value,
                     date: e.target.date.value,
                     description: e.target.description.value
                 }),
@@ -40,16 +42,20 @@ export default function Report() {
                 <label className="dateFont">Country:</label>
                 <input className="dateText" type="text" name="country" />
                 <br />
-                <label className="dateFont">Date:</label>
-                <input type="text" name="date" className="dateText"/>
+                <div>
+                    <label className="dateFont">Date:</label>
+                    <input placeholder="Month" type="text" name="month" className="dateText" />
+                    <input placeholder="Date" type="text" name="date" className="dateText" />
+                    <input placeholder="Year" type="text" name="year" className="dateText" />
+                </div>
                 <br />
                 <label className="descriptionFont">Please describe the alien or its aircraft:</label>
                 <textarea className="descriptionText" name="description" />
                 <br />
-                
-                <input className ="button-23" type="submit"/>
-                
-                
+
+                <input className="button-23" type="submit" />
+
+
 
 
             </form>
