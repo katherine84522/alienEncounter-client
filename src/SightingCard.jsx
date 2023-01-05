@@ -39,8 +39,8 @@ export default function SightingCard({ sighting }) {
     return (
         <div className="sightingCard">
             <img src={sighting.image} className="sightingImg" />
-            <p className = "country">Saw in {sighting.country}</p>
-            <p className ="description">{sighting.description}</p>
+            <p className="country">Saw in {sighting.country} on {sighting.month}/{sighting.date}/{sighting.year}</p>
+            <p className="description">{sighting.description}</p>
             <p className="likes">{likes} likes </p>
             <button onClick={() => { handleLike() }} className="likeButton">🛸 Like</button>
         </div>
