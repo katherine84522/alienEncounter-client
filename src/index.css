@@ -1,7 +1,7 @@
 .sighting {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 120%;
+  margin-top: 90%;
 }
 
 
@@ -25,7 +25,7 @@
   width: 65%;
   display: flex;
   margin-left: 600px;
-  
+
   /* justify-content: space-between; */
   /* margin-left: 400px; */
 
