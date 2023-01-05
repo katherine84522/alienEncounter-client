@@ -9,6 +9,7 @@ import Report from './Report'
 import Sighting from './Sighting'
 import NewsArticle from './NewsArticle'
 import { useState } from 'react'
+import { AlertDialog } from "mui-react-alert";
 
 
 const Root = ({ children }) => (
@@ -42,7 +43,12 @@ const App = () => {
     }
   ]);
 
-  return <RouterProvider router={router} />
+  return (
+    <div>
+      <RouterProvider router={router} />
+      <AlertDialog />
+    </div>
+  )
 }
 
 export default App
