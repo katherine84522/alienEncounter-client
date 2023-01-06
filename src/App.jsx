@@ -8,7 +8,6 @@ import News from './News'
 import Report from './Report'
 import Sighting from './Sighting'
 import NewsArticle from './NewsArticle'
-import { useState } from 'react'
 import { AlertDialog } from "mui-react-alert";
 import { useEffect, useState } from 'react'
 import { showAlertConfirmarion } from "mui-react-alert";
