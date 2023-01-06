@@ -1,7 +1,7 @@
 .sighting {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 90%;
+  margin-top: 50%;
 }
 
 
@@ -9,16 +9,14 @@
   /* width: 100%;
   height: auto; */
   float: left;
-    width: 70%;
-    height: 100%;
-    object-fit: cover;
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
 
 }
 
 .sightingCard {
-  width: 33%;
-  height: auto;
-  
+  width: 34%;
 }
 
 .navbar {
@@ -36,4 +34,3 @@
   /* margin-left: 400px; */
 
 }
-
