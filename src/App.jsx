@@ -10,30 +10,19 @@ import News from './News'
 import NewsArticle from './NewsArticle'
 import Report from './Report'
 import Sighting from './Sighting'
-
-
-
 const Root = ({ children, setSightings }) => {
-
-
-
   useEffect(() => {
     const connect = async () => {
       const ws = new WebSocket("ws://localhost:3000/cable")
-
       ws.onopen = () => {
         console.log("Websockets connected!")
-
         ws.send(JSON.stringify({ "command": "subscribe", "identifier": `{"channel": "LiveFeedChannel"}` }))
         // ws.send(JSON.stringify({ "command": "subscribe", "identifier": `{"channel": "NotificationChannel"}` }))
-
       }
-
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data)
         if (data.type === "ping" || data.type === "welcome" || data.type === "confirm_subscription") return
         console.log('data', data)
-
         // Retrieve the newly created post object sent by ActionCable (Rails)
         // Update state using setPosts to reflect this change in the browser immediately
         const sighting = data.message.report
@@ -47,12 +36,9 @@ const Root = ({ children, setSightings }) => {
           onConfirmation: () => { location.href = '/' }
         });
       }
-
     }
-
     connect()
   }, [])
-
   return (
     <>
       <NavBar />
@@ -60,19 +46,31 @@ const Root = ({ children, setSightings }) => {
     </>
   )
 }
-
-
-
 const App = () => {
-
   const [article, setArticle] = useState([])
   const [sightings, setSightings] = useState([])
-
-
+  useEffect(() => {
+    const request = async () => {
+      let req = await fetch("http://localhost:3000/reports")
+      let res = await req.json()
+      setSightings(res)
+      console.log(res)
+    }
+    request()
+  }, [])
+  const handleSort = () => {
+    // setSort(true)
+    setSightings(() => {
+      const sortedSightings = sightings.sort((a, b) => a.likecount > b.likecount ? -1 : 1)
+      console.log('Sorted', sortedSightings.map(s => s.likecount))
+      return [...sortedSightings]
+    })
+    console.log('is now', sightings)
+  }
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root setSightings={setSightings}><Sighting sightings={sightings} setSightings={setSightings} /></Root>
+      element: <Root setSightings={setSightings}><Sighting handleSort={handleSort} sightings={sightings} setSightings={setSightings} /></Root>
     },
     {
       path: "/report",
@@ -87,9 +85,6 @@ const App = () => {
       element: <Root><NewsArticle article={article} /></Root>
     }
   ]);
-
-
-
   return (
     <div>
       <RouterProvider router={router} />
@@ -97,5 +92,4 @@ const App = () => {
     </div>
   )
 }
-
 export default App
