@@ -1,13 +1,9 @@
 import { useNavigate } from "react-router-dom"
-import { useState } from 'react'
+
 
 export default function Report() {
     const navigate = useNavigate()
 
-    // const [img, setImg] = useState('')
-    // const [country, setCountry] = useState('')
-    // const [date, setDate] = useState('')
-    // const [description, setDescription] = useState('')
 
 
     const handleSubmit = (e) => {

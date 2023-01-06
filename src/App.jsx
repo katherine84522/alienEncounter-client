@@ -1,3 +1,5 @@
+import { AlertDialog, showAlertConfirmarion } from "mui-react-alert"
+import { useEffect, useState } from 'react'
 import {
   createBrowserRouter,
   RouterProvider
@@ -5,56 +7,17 @@ import {
 import './App.css'
 import NavBar from './NavBar'
 import News from './News'
+import NewsArticle from './NewsArticle'
 import Report from './Report'
 import Sighting from './Sighting'
-import NewsArticle from './NewsArticle'
-import { AlertDialog } from "mui-react-alert";
-import { useEffect, useState } from 'react'
-import { showAlertConfirmarion } from "mui-react-alert";
 
 
-const Root = ({ children }) => (
-  <>
-    <NavBar />
-    {children}
-  </>
-)
 
-const App = () => {
+const Root = ({ children, setSightings }) => {
 
-  const [article, setArticle] = useState([])
-  const [sightings, setSightings] = useState([])
-
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root><Sighting sightings={sightings} setSightings={setSightings} /></Root>
-    },
-    {
-      path: "/report",
-      element: <Root><Report /></Root>
-    },
-    {
-      path: "/news",
-      element: <Root><News setArticle={setArticle} /></Root>
-    },
-    {
-      path: "/news/:id",
-      element: <Root><NewsArticle article={article} /></Root>
-    }
-  ]);
 
 
   useEffect(() => {
-    const request = async () => {
-      let req = await fetch("http://localhost:3000/reports")
-      let res = await req.json()
-      setSightings(res)
-      console.log(res)
-
-    }
-
     const connect = async () => {
       const ws = new WebSocket("ws://localhost:3000/cable")
 
@@ -81,23 +44,51 @@ const App = () => {
           confirmLabel: "Take me there",
           subtitle:
             "Check it in the sightings",
-          onConfirmation: function () {
-            console.log("hi")
-          }
+          onConfirmation: () => { location.href = '/' }
         });
-        // alert("A new alien sighting is posted!")
       }
-
-
 
     }
 
-
-
     connect()
-
-    request()
   }, [])
+
+  return (
+    <>
+      <NavBar />
+      {children}
+    </>
+  )
+}
+
+
+
+const App = () => {
+
+  const [article, setArticle] = useState([])
+  const [sightings, setSightings] = useState([])
+
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root setSightings={setSightings}><Sighting sightings={sightings} setSightings={setSightings} /></Root>
+    },
+    {
+      path: "/report",
+      element: <Root><Report /></Root>
+    },
+    {
+      path: "/news",
+      element: <Root><News setArticle={setArticle} /></Root>
+    },
+    {
+      path: "/news/:id",
+      element: <Root><NewsArticle article={article} /></Root>
+    }
+  ]);
+
+
 
   return (
     <div>

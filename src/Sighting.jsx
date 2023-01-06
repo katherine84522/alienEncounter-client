@@ -1,28 +1,47 @@
-import { useNavigate } from "react-router-dom"
 import SightingCard from './SightingCard'
+import { useState, useEffect } from 'react'
 
 export default function Sighting({ sightings, setSightings }) {
-    const navigate = useNavigate();
 
+    const [sort, setSort] = useState(false)
 
+    const sortedSightings = sightings.sort((a, b) => a.likecount > b.likecount ? -1 : 1)
 
     const handleSort = () => {
-        const sortedSightings = sightings.sort((a, b) => a.likecount > b.likecount ? -1 : 1)
-        setSightings(sortedSightings)
-        console.log(sortedSightings)
+        setSort(true)
+        console.log(sort)
     }
 
+    useEffect(() => {
+        const request = async () => {
+            let req = await fetch("http://localhost:3000/reports")
+            let res = await req.json()
+            setSightings(res)
+            console.log(res)
 
+        }
+
+        request()
+    }, [])
+
+    console.log(sightings)
     return (
         <div>
             <button className="sortButton" onClick={() => { handleSort() }}>Sort by popularity</button>
             <div className="sighting">
-                {
-                    sightings.map((sighting) => {
+                {sort ? (
+                    sortedSightings.map((sighting) => {
                         return (
-                            < SightingCard sighting={sighting} />
+                            <SightingCard sighting={sighting} />
                         )
                     })
+                ) : (
+                    sightings.map((sighting) => {
+                        return (
+                            <SightingCard sighting={sighting} />
+                        )
+                    })
+                )
                 }
             </div>
         </div>
