@@ -47,7 +47,7 @@ export default function SightingCard({ sighting }) {
                     <p >{sighting.description}</p>
                 </div>
                 <div className="likesButton">
-                    <p>{likes} likes </p>
+                    <p className="like">{likes > 1 ? `${likes} Likes` : 'Like'} </p>
                     <button onClick={() => { handleLike() }} className="likeButton">🛸 Like</button>
                 </div>
 

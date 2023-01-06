@@ -206,9 +206,9 @@ body {
     display: flex;
     font-family: "Trebuchet MS", Verdana, sans-serif;
     font-size: 15px;
-    margin: 5px 20px;
-    width: -10px;
-    /* padding: 10px; */
+    margin: 11px;
+    width: -19px;
+    padding: 35px;
 }
 
 .homeText {
@@ -410,3 +410,13 @@ body {
     /* display: flex; */
     gap: 0.5em;
 }
+
+.like {
+    font-size:large;
+    margin-top: 5px;
+
+}
+
+
+
+

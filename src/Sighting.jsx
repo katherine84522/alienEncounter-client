@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react'
 
 export default function Sighting({ sightings, setSightings }) {
 
-    const [sort, setSort] = useState(false)
+    // const [sort, setSort] = useState(false)
 
-    const sortedSightings = sightings.sort((a, b) => a.likecount > b.likecount ? -1 : 1)
+    // const sortedSightings = sightings.sort((a, b) => a.likecount > b.likecount ? -1 : 1)
 
-    const handleSort = () => {
-        setSort(true)
-        console.log(sort)
-    }
+    // const handleSort = () => {
+    //     setSort(true)
+    //     console.log(sort)
+    // }
 
     useEffect(() => {
         const request = async () => {
@@ -27,23 +27,33 @@ export default function Sighting({ sightings, setSightings }) {
     console.log(sightings)
     return (
         <div>
-            <button className="sortButton" onClick={() => { handleSort() }}>Sort by popularity</button>
+            {/* <button className="sortButton" onClick={() => { handleSort() }}>Sort by popularity</button> */}
             <div className="sighting">
-                {sort ? (
-                    sortedSightings.map((sighting) => {
-                        return (
-                            <SightingCard sighting={sighting} />
-                        )
-                    })
-                ) : (
+                {
                     sightings.map((sighting) => {
                         return (
                             <SightingCard sighting={sighting} />
                         )
                     })
-                )
                 }
             </div>
         </div>
     )
 }
+
+
+// {
+//     sort ? (
+//         sortedSightings.map((sighting) => {
+//             return (
+//                 <SightingCard sighting={sighting} />
+//             )
+//         })
+//     ) : (
+//         sightings.map((sighting) => {
+//             return (
+//                 <SightingCard sighting={sighting} />
+//             )
+//         })
+//     )
+// }
