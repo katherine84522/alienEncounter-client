@@ -68,11 +68,35 @@ const App = () => {
   const [article, setArticle] = useState([])
   const [sightings, setSightings] = useState([])
 
+  useEffect(() => {
+    const request = async () => {
+      let req = await fetch("http://localhost:3000/reports")
+      let res = await req.json()
+      setSightings(res)
+      console.log(res)
+
+
+    }
+
+    request()
+  }, [])
+
+  const handleSort = () => {
+    // setSort(true)
+    setSightings(() => {
+      const sortedSightings = sightings.sort((a, b) => a.likecount > b.likecount ? -1 : 1)
+      console.log('Sorted', sortedSightings.map(s => s.likecount))
+      return [...sortedSightings]
+    })
+    console.log('is now', sightings)
+  }
+
+
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root setSightings={setSightings}><Sighting sightings={sightings} setSightings={setSightings} /></Root>
+      element: <Root setSightings={setSightings}><Sighting handleSort={handleSort} sightings={sightings} setSightings={setSightings} /></Root>
     },
     {
       path: "/report",
